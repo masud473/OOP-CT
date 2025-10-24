@@ -25,9 +25,6 @@ public:
 };
 int main()
 {
-    Shape *s = new Shape();
+    Shape *s = new Circle();
     s->draw();
-    s = new Circle();
-    s->draw();
-    cout<<Circle::area(24.489);
 }
