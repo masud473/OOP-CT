@@ -1,30 +1,38 @@
+
 #include <iostream>
 using namespace std;
-class Shape
+class A
 {
 public:
-    virtual void draw() {}
+
+   virtual void Show()
+    {
+        std::cout << "A:Show()\n";
+    }
 };
-class Circle : public Shape
+
+class B : public A
 {
-
 public:
-    void draw()
+    void Show()
     {
-        cout << "Circle";
-    }
-
-    static double area(double radius)
-    {
-        return 3.1416 * radius * radius;
-    }
-    static int area(int radius)
-    {
-        return 3.1416 * radius * radius;
+        std::cout << "B:Show()\n";
     }
 };
+
+class C : public B
+{
+public:
+    void Show()
+    {
+        std::cout << "C:Show()\n";
+    }
+};
+
 int main()
 {
-    Shape *s = new Circle();
-    s->draw();
+    A *a=new C();
+    a->Show();
+
+    return 0;
 }
