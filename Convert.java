@@ -1,9 +1,13 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Convert implements ActionListener {
@@ -15,9 +19,11 @@ public class Convert implements ActionListener {
     JButton b = new JButton("Convert to inch");
 
     Convert() {
-        frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        frame.setLayout(new FlowLayout());
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setPreferredSize(new Dimension(220, 130));
 
         l1.setBounds(10, 10, 40, 30);
         foot.setBounds(60, 10, 150, 30);
@@ -27,13 +33,17 @@ public class Convert implements ActionListener {
 
         inch.setEditable(false);
         b.addActionListener(this);
+        foot.addActionListener(this);
 
-        frame.add(foot);
-        frame.add(l1);
-        frame.add(l2);
-        frame.add(b);
-        frame.add(inch);
+        panel.add(foot);
+        panel.add(l1);
+        panel.add(l2);
+        panel.add(b);
+        panel.add(inch);
+
+        frame.add(panel);
         frame.setLocationRelativeTo(null);
+        frame.pack();
         frame.setVisible(true);
     }
 
@@ -43,6 +53,7 @@ public class Convert implements ActionListener {
             Double d = Double.valueOf(foot.getText());// extremely important conversion
             d *= 12;
             inch.setText(d + "");
+            JOptionPane.showMessageDialog(null, "Something");
         }
     }
 

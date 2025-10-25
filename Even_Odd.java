@@ -60,9 +60,9 @@ public class Even_Odd {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         t1.start();
+        scanner.close();
     }
 }
