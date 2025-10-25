@@ -36,11 +36,11 @@ class Odd implements Runnable {
         while (start <= limit) {
             System.out.println("Odd: " + start);
             try {
-<<<<<<< HEAD
+
                 Thread.sleep(1000);
-=======
+
                 Thread.sleep(2000);
->>>>>>> 9c288ecc6beea9714eaa1452bd03ba00fa44f613
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
