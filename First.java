@@ -15,6 +15,8 @@ class B extends A {
 }
 
 class C extends B {
+    String val;
+
     @Override
     void func() {
         System.out.println("This is func from C");
@@ -31,6 +33,7 @@ public class First {
         A a = new C();
         a.func();
         a.display();
-        ((C)a).uniqueCMethod();// use typecasting to access child methods
+        ((C) a).val = "";// use typecasting to access child methods
+        System.out.println(((C)a).val);
     }
 }
