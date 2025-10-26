@@ -1,24 +1,29 @@
-abstract class A {
-    abstract void func();
+interface A {
+    void func();
 
-    void display() {
+    default void display() {
         System.out.println("This is a display method");
 
     }
 }
 
-class B extends A {
+class B implements A {
     @Override
-    void func() {
+    public void func() {
         System.out.println("This is func from B");
     }
+
+    void uniqueBMethod() {
+        System.out.println("This is a unique method in B");
+    }
+
 }
 
 class C extends B {
     String val;
 
     @Override
-    void func() {
+    public void func() {
         System.out.println("This is func from C");
     }
 
@@ -33,7 +38,14 @@ public class First {
         A a = new C();
         a.func();
         a.display();
-        ((C) a).val = "";// use typecasting to access child methods
-        System.out.println(((C)a).val);
+        ((B) a).uniqueBMethod();
+        ((C) a).val = "c";// use typecasting to access child methods+data
+        System.out.println(((C) a).val);
+        B b = new C();
+        b.func();
+        b.display();
+        b.uniqueBMethod();
+        ((C) b).uniqueCMethod();
+
     }
 }
